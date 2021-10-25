@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="d-sm-flex justify-content-around">
+          <h1 class="display-4">Pokedex</h1>
+          <a href="/pokemon/new" class="btn btn-primary">Add Pokemon</a>
+        </div>
+      </div>
+      <div class="row justify-content-around">
+        {% for pokemon in pokemon %} {% if forloop.index0 < i %}
+        <div class="pokecard card" style="width: 12rem">
+          <img
+            class="card-img-top"
+            src="{{ pokemon.img }}"
+            alt="Card image cap"
+            style="height: 12rem"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ pokemon.name }}</h5>
+            <a href="/pokemon/{{ forloop.index0 }}" class="btn btn-primary"
+              >View Pokemon</a
+            >
+          </div>
+        </div>
+
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

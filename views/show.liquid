@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Pokedex Entry - {{ pokemon.name }}</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="d-sm-flex justify-content-around">
+          <h1 class="display-4">Pokedex</h1>
+          <a href="/pokemon" class="btn btn-primary">Return To Pokedex</a>
+        </div>
+      </div>
+      <div class="container text-center">
+        <div class="pokemon d-sm-flex justify-content-around row">
+          <div class="pokemon-id card p-3 col-3">
+            <h3 class="card-title">{{ pokemon.name }}</h3>
+            <img
+              class="mx-auto"
+              src="{{ pokemon.img }}"
+              alt="pokemon image"
+              style="width: 75px; height: 75px"
+            />
+            <p>ID #{{ pokemon.id }}</p>
+            <a href="/pokemon/{{ id }}/edit">Edit <br />Pokemon</a>
+            <form action="/pokemon/{{ id }}?_method=DELETE" method="post">
+              <input type="submit" value="DELETE" />
+            </form>
+          </div>
+          <div class="pokemon-stats card p-3 col-4">
+            <div>
+              <h3 class="card-title">Stats</h3>
+              <p>hp: {{ pokemon.stats.hp }}</p>
+              <p>speed: {{ pokemon.stats.speed }}</p>
+            </div>
+            <div>
+              <h5 class="h5">Attack</h5>
+              <p>attack: {{ pokemon.stats.attack }}</p>
+              <p>spattack: {{ pokemon.stats.spattack }}</p>
+            </div>
+            <h5 class="h5">Defense</h5>
+            <p>defense: {{ pokemon.stats.defense }}</p>
+            <p>spdefense: {{ pokemon.stats.spdefense }}</p>
+          </div>
+          <div class="pokemon-type card p-3 col-2">
+            <h3 class="card-title">Type</h3>
+            <p>{% for type in pokemon.type %}{{ type }}<br />{% endfor %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

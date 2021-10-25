@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Pokedex Entry - {{ pokemon.name }}</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="d-sm-flex justify-content-around">
+          <h1 class="display-4">Pokedex</h1>
+          <a href="/pokemon" class="btn btn-primary">Return To Pokedex</a>
+        </div>
+      </div>
+      <div>
+        <form action="/pokemon/{{ id }}?_method=PUT" method="POST">
+          <label>Pokemon ID</label>
+          <input type="text" name="id" /><br />
+          <label>Pokemon Name</label>
+          <input type="text" name="name" /><br />
+          <input type="submit" value="Find Pokemon" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
